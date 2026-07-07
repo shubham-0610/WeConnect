@@ -54,7 +54,7 @@ def render_message(sender, content, timestamp, is_self=False):
                 font-family:Arial, sans-serif;
             ">
                 <div style="font-size:13px; font-weight:bold; color:#075E54;">{sender}</div>
-                <div style="font-size:14px; margin-top:2px;">{content}</div>
+                <div style="font-size:14px; margin-top:2px;color:#36454F;">{content}</div>
                 <div style="font-size:10px; color:gray; margin-top:4px;">{timestamp}</div>
             </div>
         </div>

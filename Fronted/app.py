@@ -3,6 +3,7 @@ import base64
 import os
 import sys
 from pathlib import Path
+from streamlit_autorefresh import st_autorefresh
 
 # --- Ensure project root is in sys.path ---
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -148,6 +149,8 @@ if st.session_state.logged_in and st.session_state.user:
             # Find friend_id
             all_users = get_all_users(user[2]) + [(user[0], user[2])]
             friend_id = [u[0] for u in all_users if u[1] == selected_friend][0]
+            # Refresh every 5 seconds
+            count = st_autorefresh(interval=500, key="chatrefresh")
             msgs = get_messages(user[0], friend_id)
             for m in msgs:
                 sender, content, timestamp = m
